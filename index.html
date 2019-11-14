@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue-demo</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="text"> {{ text }}
+    </div>
+    <script>
+        window.batcher = ""
+    </script>
+    <script src="src/Batcher.js"></script>
+    <!-- 收集依赖 -->
+    <script src="src/Dep.js"></script>
+    <!-- 把数据变成可监听 -->
+    <script src="src/Observe.js"></script> 
+    <!-- 连接view跟model的桥梁 view-model -->
+    <script src="src/Watcher.js"></script>
+    <!-- 编译模板 -->
+    <script src="src/Compile.js"></script>
+    <!-- 入口文件 -->
+    <script src="src/MVVM.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"app",
+            data:{
+                text:"我是谁"
+            }
+        })
+        for(var i=0;i<100;i++){
+            vm["text"] = i;
+        }
+    </script>
+</body>
+</html>
